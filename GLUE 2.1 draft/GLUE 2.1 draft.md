@@ -15,6 +15,24 @@ Conversion notes:
 * Source doc: https://docs.google.com/a/nsfcac.org/open?id=1DbE41Z--2IYMnJJASnZLa85HKV9OeIN6LEd-4Cll91k
 * This document has images: inline image link in generated source and store images to your server.
 ----->
+GFD-R-P.xxx                                                                                                                       Authors:
+Category: Recommendation                                                                       Salvatore Pinto°, EGI.eu
+GLUE Working Group	                                                                          Sergio Andreozzi°, EGI.eu
+                                                                                                                          Stephen Burke, RAL
+http://forge.ogf.org/sf/projects/glue-wg                                                                  Felix Ehm, CERN   
+                                                                                                                      Laurence Field*, CERN
+Gerson Galang, ARCS
+Balazs Konya*, Lund University 
+Maarten Litmaath, CERN
+Paul Millar, DESY
+JP Navarro, ANL
+
+                                                                                                                      
+*co-chairs
+  									                            °editor
+
+October 8, 2013
+
 
 **GLUE Specification v 2.1-DRAFT**
 
