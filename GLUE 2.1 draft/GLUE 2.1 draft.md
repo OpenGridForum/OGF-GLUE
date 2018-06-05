@@ -11525,7 +11525,7 @@ AcceleratorInfo
 
 
 
-    1.  CloudComputingImageNetworkTraffic
+### 8.10 CloudComputingImageNetworkTraffic
 
 The CloudComputingImageNetworkTraffic contains information about network settings, related to a single or a set of ports and a network address in CIDR notation, of a cloud computing image. There might be zero, one or more objects for each computing image.
 
@@ -11718,7 +11718,7 @@ The CloudComputingImageNetworkTraffic contains information about network setting
 
 
 
-    1.  CloudComputingInstance
+### 8.11 CloudComputingInstance
 
 The `CloudComputingInstance` class represents a single VM (but possibly multi-VM) instance. The attributes give the instance properties and state as seen by the hypervisor, together with some Cloud-level information.
 
@@ -12147,7 +12147,7 @@ In this specification, the Cloud Computing Instance may refer to a VM or to elem
 
 
 
-    1.  CloudComputingInstanceAcceleratorInfo
+### 8.12 CloudComputingInstanceAcceleratorInfo
 
 The CloudComputingInstanceAcceleratorInfo contains information about the usage level of the virtual accelerator device handled by the cloud computing instance.
 
@@ -12318,7 +12318,7 @@ AcceleratorInfo
 
 
 
-    1.  CloudServicePrice
+### 8.13 CloudServicePrice
 
 The `CloudServicePrice` entity models the resources price in the cloud environment. This entity represents a single price voice of the final price for the activity. This voice is related to a given consumed resource which is specified in the attributes of the entity.
 
@@ -12559,7 +12559,7 @@ The entity can be associated to multiple `CloudComputingInstanceType` or `CloudC
 
 
 
-    1.  CloudToStorageService
+### 8.14 CloudToStorageService
 
 The `CloudToStorageService` class represents the case where a virtual disk is created into the Storage Service for VM usage. The disk may be attached to the VM (visible as a disk device by the VM OS) or available via other export protocols (NFS share, iSCSI, etc…).
 
@@ -12768,7 +12768,7 @@ The entity can be associated to multiple `CloudComputingInstance`, to a` CloudCo
 
 
 
-1.  **Conceptual Model of the Storage Service**
+## 9. Conceptual Model of the Storage Service
 
 The conceptual model of the Storage Service is based on the main entities and uses specializations of the `Service`, `Endpoint`, `Share`, `Manager`, `Resource`, and `Activity` entities.  Further storage-related concepts such as `Storage Service Capacity`, `Storage Share Capacity` and `Storage Access Protocol` are also introduced.
 
@@ -12782,7 +12782,7 @@ As explained in Section , we use the concept of storage extent to mean the capab
 
 
 
-    1.  StorageService
+### 9.1 StorageService
 
 A `StorageService` represents a storage system, most often hosted by a single site, but possibly distributed over multiple sites. A `StorageService` makes `StorageShares` of given properties available to selected `UserDomains`, typically (not necessarily) through one or more explicitly identified `StorageEndpoints`.  Data may be stored in or retrieved from `StorageShares` through one or more `StorageAccessProtocols`.  A `StorageShare` is a composition of extents from one or more `DataStores`.  `StorageShares` MAY overlap, i.e. map to the same underlying extent.  A `DataStore` represents a physical device that holds data (e.g. a disk farm or a tape robot).  Each `DataStore` is managed by a `StorageManager`, an instance of a particular software product identified by the ProductName and ProductVersion. `StorageServiceCapacity` objects summarize capacity-related information, for which details may be available associated to `StorageShares` and `DataStores`.
 
@@ -13057,7 +13057,7 @@ The Storage Service MAY expose Storage Endpoints enabling management of or acces
 
 
 
-    1.  StorageServiceCapacity
+### 9.2 StorageServiceCapacity
 
 The `StorageServiceCapacity` class summarizes capacity-related information for all the `StorageShares` and `DataStores` of a given homogeneous type. The summaries MAY be compared to the sums of the relevant `StorageShareCapacity` attributes for the `StorageShares` of the given type.  Capacities of overlapping `StorageShares` MUST only be counted once.  An inconsistency between a summary value and the corresponding sum of relevant attributes MAY occur if part of the capacity is not explicitly published, or if the attributes concerned could not all be exactly determined or recorded at the same time.  The summaries MAY also be compared to the sums of the relevant attributes of the `DataStores` of the given type, where inconsistencies MAY arise due to similar causes.
 
@@ -13262,7 +13262,7 @@ The `StorageServiceCapacity` class summarizes capacity-related information for a
 
 
 
-    1.  StorageAccessProtocol
+### 9.3 StorageAccessProtocol
 
 A `StorageAccessProtocol` describes a protocol that can be used to store data in or retrieve data from `StorageShares`. The "file" protocol indicates that for `ComputingServices` given by `ToComputingService` objects the `StorageShares` are available through POSIX I/O.  The mount point details are given by corresponding `ToStorageService` objects published by those `ComputingServices`. Most protocols require a negotiation between the client and a `StorageEndpoint`.  For example, a `StorageEndpoint` implementing a version of the SRM protocol may be asked for a data transfer URL corresponding to a desired access protocol.  An access protocol that does not require prior negotiation MAY be published as one or more `StorageEndpoints` with an InterfaceName corresponding to that protocol.
 
@@ -13463,7 +13463,7 @@ has an associated URL and this URL needs to be discoverable, then the Access Pro
 
 
 
-    1.  StorageEndpoint
+### 9.4 StorageEndpoint
 
 A `StorageEndpoint` represents a service that may be contacted by clients to manage `StorageShares`, to store or retrieve data or to perform other operations related to a storage system.  The `StorageEndpoint` typically implements a storage control protocol specified by the InterfaceName, which allows for the manipulation of `StorageShares` and the properties of their data content.  Access to `StorageShares` for storing or retrieving data often has to be negotiated through the given control protocol.  The available access protocols MAY be published in `StorageAccessProtocol` objects.  The `StorageEndpoint` interface MAY also be used to publish the endpoint(s) of an access protocol that does not require prior negotiation.  The Storage Endpoint may be able to serve only a subset of the `StorageShares` within the `StorageService`, in which case that subset MAY be indicated through explicit associations with those `StorageShares`.
 
@@ -13908,7 +13908,7 @@ A `StorageEndpoint` represents a service that may be contacted by clients to man
 
 
 
-    1.  StorageShare
+### 9.5 StorageShare
 
 A `StorageShare` is a composition of extents from one or more `DataStores`. `StorageShares` that overlap, i.e. share the same underlying extent, have the same SharingID, which in that case MUST neither be empty nor the reserved string "dedicated".  A `DataStore` represents a physical device or set of devices that are able to hold data (e.g. a disk farm or a tape robot).  A `StorageShare` need not be composed of homogeneous devices.
 
@@ -14279,7 +14279,7 @@ A Storage Share represents a utilization target of one or more storage extents w
 
 
 
-    1.  StorageShareCapacity
+### 9.6 StorageShareCapacity
 
 The `StorageShareCapacity` class provides a set of attributes related to the size of the data storage extents  associated with a `StorageShare`. One `StorageShare` MAY have several associated `StorageShareCapacity` objects of different types, which may be related either to the physical nature of the storage medium or to the intended use, e.g. accounting or resource discovery. It is therefore possible that the same physical storage MAY be reported in more than one object. The size information generally relates to the values as seen by a user of the `Service`, which may not correspond directly to the size of the physical storage media which underly it. For example, disk servers may include parity disks or hot spares which are not directly visible to users.
 
@@ -14488,7 +14488,7 @@ The Storage Share Capacity is useful to express the usage information of a homog
 
 
 
-    1.  StorageManager
+### 9.7 StorageManager
 
 The `StorageManager` class respresents the software system which manages the data storage media. If different media, e.g. tape and disk, are managed by different software systems there MAY be multiple `StorageManager` instances for a single `StorageService`. In some systems there may be a number of layers of software, but this cannot be represented. At present no attributes are defined beyond those inherited from the `Manager` entity, i.e. the Name and Version of the software product.
 
@@ -14673,7 +14673,7 @@ The `StorageManager` class respresents the software system which manages the dat
 
 
 
-    1.  DataStore
+### 9.8 DataStore
 
 The `DataStore` class represents the physical storage systems underlying the `Storage Service`. Typically there will be one `DataStore` instance for each homogeneous type of storage, e.g. tape and disk. However, multiple objects of the same Type MAY be published if the storage is segmented at a high level, e.g. if there are two separate robotic tape stores. The size information relates to the physical capacity of the storage media, which may differ from the values reported in the Capacity classes.
 
@@ -14890,7 +14890,7 @@ The `DataStore` class represents the physical storage systems underlying the `St
 
 
 
-    1.  ToComputingService
+### 9.9 ToComputingService
 
 The `ToComputingService` class describes a network connection between a `Storage Service` and a `Computing Service` which has a level of performance significantly better than the general WAN connection. It is assumed that such a connection applies to the entirety of those Services, i.e. to all Worker Nodes within the `Computing Service` and all storage within the `Storage Service`. However, the connection MAY depend on the Access Protocol used to transfer the data. Some Access Protocols may only be available from a restricted set of Computing Services, and this may also be published using the ToComputingService class.
 
@@ -15075,7 +15075,7 @@ The `ToComputingService` class describes a network connection between a `Storage
 
 
 
-    1.  ToCloudComputingService
+### 9.10 ToCloudComputingService
 
 The `ToCloudComputingService` class describes a network connection between a `Storage Service` and a `Cloud Computing Service` which has a level of performance significantly better than the general WAN connection. It is assumed that such a connection applies to the entirety of those Services, i.e. to all Virtual machines within the `Cloud Computing Service` and all storage objects within the `Cloud Storage Service`. However, the connection MAY depend on the Access Protocol used to transfer the data and to restrictions in data access to the data itself. Some Access Protocols may only be available from a restricted set of Compute Services, and this may also be published using the `ToCloudComputingService` class.
 
@@ -15261,11 +15261,7 @@ It is important to note that this entity applies only to a `CloudStorageService`
 
 
 
-# 
-
-
-
-1.  **Relationship to OGF Reference Model**
+## 10. Relationship to OGF Reference Model
 
 In this section, we describe the integration of the GLUE information model with the OGF Reference Model [RM]. The reference model defines the concept of Grid Component. In GLUE, a root concept called Entity is defined. Such a root concept MAY be defined as a specialization of the GridComponent concept, that means that all properties are inherited by the GLUE classes. In Figure 5, we represent this relationship by a UML class diagram. 
 
@@ -15277,7 +15273,7 @@ In this section, we describe the integration of the GLUE information model with 
 
 
 
-1.  **Security Considerations**
+## 11. Security Considerations
 
 This section considers security implications when using the GLUE 2.0 conceptual model.  It follows the advice given in RFC-3552.
 
@@ -15287,13 +15283,13 @@ When deploying an information service conforming to the GLUE 2.0 conceptual mode
 
 
 
-    1.  Communication security
+### 11.1 Communication security
 
 The GLUE conceptual model is independent of how information is stored and how that information is exchanged between agents.  Because of this, concern for communication security is largely delegated to the underlying concrete data model and software implementations.
 
 
 
-        1.  Confidentiality
+#### 11.1.1 Confidentiality
 
 The GLUE conceptual model contains information that MAY be personal or confidential in nature.  Contact details and indications of end-user activity MAY fall into this category.
 
@@ -15301,7 +15297,7 @@ Conforming implementations should identify which components of the data should b
 
 
 
-        1.  Data integrity
+#### 11.1.2 Data integrity
 
 The information within GLUE has many potential uses, from operational to accounting.  How accurate the information is MAY depend on many factors, including the integrity of software agents that publish data and the transport used to propagate information.
 
@@ -15309,7 +15305,7 @@ The software used to provide an information service MAY cache GLUE information. 
 
 
 
-        1.  Peer Entity authentication
+#### 11.1.3 Peer Entity authentication
 
 No explicit description of the agents that publish information is included within the GLUE conceptual model. This prevents authentication information from being included within the abstract model.
 
@@ -15317,7 +15313,7 @@ In general, support for peer-entity authentication is delegated to the concrete 
 
 
 
-    1.  Non-repudiation
+### 11.2 Non-repudiation
 
 The GLUE conceptual model contains no explicit description of the publishing agents that provide GLUE information.  This prevents explicitly support for non-repudiation.  In many cases a set of publishing agents will provide information for Services in some AdminDomain.  If so, then it is the AdminDomain that asserts the non-repudiation of the data the publishing agents provide.
 
@@ -15329,13 +15325,13 @@ Extension) or MAY be included in fields specific to the concrete data model.
 
 
 
-    1.  System security
+### 11.3 System security
 
 The GLUE conceptual model intended use is to provide an abstract view of a grid system.  There are many processes that MAY make use of this information, each MAY depend on the GLUE conceptual model to undertake work.
 
 
 
-        1.  Unauthorized usage
+#### 11.3.1 Unauthorized usage
 
 The GLUE conceptual model has no explicit description of end-users of the schema information and no explicit description of authorized usage.  In general, is assumed that any authorization controls for access to the GLUE information is provided by specific concrete bindings and software implementation.
 
@@ -15343,7 +15339,7 @@ It MAY be possible to identify a UserDomain with those agents authorised to use 
 
 
 
-        1.  Inappropriate Usage
+#### 11.3.2 Inappropriate Usage
 
 The GLUE conceptual model provides no mechanism for describing appropriate usage and does not include a data-processing model, so providing a description of inappropriate usage is considered out-of-scope.
 
@@ -15351,19 +15347,19 @@ Individual grids MAY describe what they consider appropriate usage of GLUE infor
 
 
 
-    1.  Specific attacks
+### 11.4 Specific attacks
 
 RFC-3552 describes several specific attacks that MUST be considered. These are detailed below.
 
 
 
-        1.  Eavesdropping
+#### 11.4.1 Eavesdropping
 
 Some information described in the GLUE conceptual model MAY be sensitive in nature; this MAY include contact details and descriptions of user activity.  Appropriate care should be taken to prevent unintended access or disclosure to an unintended audience.
 
 
 
-        1.  Replay
+#### 11.4.2 Replay
 
 Grid operations MAY depend on information provided in the GLUE conceptual model.
 
@@ -15373,7 +15369,7 @@ A replay attack MAY result in disrupted service.  If security attributes, such a
 
 
 
-        1.  Message insertion
+#### 11.4.3 Message insertion
 
 The ability to insert information is key to providing accurate information.  However, inserting incorrect information MAY have a detrimental effect to the running systems; for example, there are attributes in the conceptual model that accept multiple values.  If incorrect values are included, the systems MAY suffer.
 
@@ -15381,31 +15377,31 @@ Many aspects of GLUE provide service discovery.  Inserting false information wou
 
 
 
-        1.  Deletion
+#### 11.4.4 Deletion
 
 The ability to delete information from an information service could interfere with normal operations; for example, if Services are removed then activity that would use those services MAY be affected; if AdminDomains are removed then normal operation procedures MAY be impossible; if security components are removed (such as X509 certificates) then facilities such as non-repudiation MAY become ineffectual. Underlying concrete models and implementing software should ensure that any ability of an agent to delete information is limited and appropriate.
 
 
 
-        1.  Modification
+#### 11.4.5 Modification
 
 The ability for an agent to modify information stored in an information service is key to providing accurate information. However, concrete data models and software implementation should place limits such that the agents' ability to modify information is controlled and appropriate.
 
 
 
-        1.  Man-in-the-middle
+#### 11.4.6 Man-in-the-middle
 
 For a system implementing the GLUE conceptual model, a successful man-in-the-middle attack MAY lead to arbitrary modification of data (see 9.4.5).  It MAY also allow deleting existing data (see 9.4.4) or adding additional data (see 9.4.3).  This MAY have severe influence on the systems based on GLUE information. Underlying concrete models and implementing software should understand the risk from man-in-the-middle attacks and provide appropriate security against them.
 
 
 
-        1.  Denial of service attacks
+#### 11.4.7 Denial of service attacks
 
 A Denial of Service attack is one that attempts to prevent normal operation of systems.  Perhaps, the most obvious is to prevent or corrupt the flow of information. Systems using the GLUE conceptual model should understand the consequences of a partial or complete lack of information. Appropriate measures should be taken to ensure the systems continue to run to the extent possible.
 
 
 
-1.  **Author Information**
+## 12. Author Information
 
  \
 Sergio Andreozzi
@@ -15507,13 +15503,13 @@ E-mail: salvatore.pinto@egi.eu
 
 
 
-1.  **Contributors & Acknowledgements**
+## 13. Contributors & Acknowledgements
 
 We gratefully acknowledge the contributions made to this document (in no particular order) by Paul Strong, Ellen Stokes, Hiro Kishimoto, David Snelling, Flavia Donno, Cal Loomis, Shiraz Memon, Matt Viljoen, Steve Traylen and all_ _people who provided constructive and valuable input in the discussion. 
 
 
 
-1.  **Intellectual Attribute Statement**
+## 14. Intellectual Attribute Statement
 
 The OGF takes no position regarding the validity or scope of any intellectual attribute or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights.  Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this specification MAY be obtained from the OGF Secretariat.
 
@@ -15521,13 +15517,13 @@ The OGF invites any interested party to bring to its attention any copyrights, p
 
 
 
-1.  **Disclaimer**
+## 15. Disclaimer
 
 This document and the information contained herein is provided on an "As Is" basis and the OGF disclaims all warranties, express or implied, including but not limited to any warranty that the use of the information herein will not infringe any rights or any implied warranties of merchantability or fitness for a particular purpose.
 
 
 
-1.  **Full Copyright Notice**
+## 16. Full Copyright Notice
 
 Copyright (C) Open Grid Forum (2009). All Rights Reserved. 
 
@@ -15537,7 +15533,7 @@ The limited permissions granted above are perpetual and will not be revoked by t
 
 
 
-1.  **References**
+## 17. References
 
     [GLUE-WG] The GLUE Working Group of OGF, _https://forge.gridforum.org/sf/projects/glue-wg_
 
@@ -15553,12 +15549,12 @@ The limited permissions granted above are perpetual and will not be revoked by t
 [GLUE-2.0] The GLUE Schema 2.0, _[http://redmine.ogf.org/dmsf/glue-wg?folder_id=18](http://redmine.ogf.org/dmsf/glue-wg?folder_id=18) _
 
 
-    [NG-SCHEMA] The NorduGrid/ARC Information System, NORDUGRID-TECH 4<code>,<em>https://forge.gridforum.org/sf/go/doc14273</em></code>
+[NG-SCHEMA] The NorduGrid/ARC Information System, NORDUGRID-TECH 4<code>,<em>https://forge.gridforum.org/sf/go/doc14273</em></code>
 
 
-    [NAREGI-SCHEMA] NAREGI information and data model, _https://forge.gridforum.org/sf/go/doc14300_
+[NAREGI-SCHEMA] NAREGI information and data model, _https://forge.gridforum.org/sf/go/doc14300_
 
- [OGF-TS] Technical Strategy for the Open Grid Forum 2007-2010. GFD-I.113. http://www.ogf.org/documents/GFD.113.pdf
+[OGF-TS] Technical Strategy for the Open Grid Forum 2007-2010. GFD-I.113. http://www.ogf.org/documents/GFD.113.pdf
 
 [OMII -DJRA2.1] S. Andreozzi, A. Ghiselli, C. Hu, J. Jiang, B. Konya, M. Riedel, D. Virdee, L. Zha. D:JRA2.1 Report on Grid Activities relevant to the identification of new services http://omii-europe.org/OMII-Europe/News/DJRA20.pdf
 
@@ -15590,7 +15586,7 @@ IETF RFC 3986. Jan 2005. http://www.ietf.org/rfc/rfc3986.txt
 
 
 
-1.  **Place-holder values for unknown data**
+## A. Place-holder values for unknown data
 
 Whilst people endeavor to provide accurate information, there MAY be situations where specific GLUE attributes MAY be assigned place-holder (or dummy) values.  These place-holder values carry some additional semantic meaning; specifically, that the correct value is currently unknown and the presented value should be ignored.  This appendix describes a set of such place-holder values.
 
@@ -15602,7 +15598,7 @@ This appendix describes place-holder values that have be chosen so they are obvi
 
 
 
-    1.  **Use cases**
+### A.1 Use cases
 
 There are two principle use-cases for place-holder values, although others MAY exist.
 
@@ -15616,19 +15612,19 @@ A dynamic value is provided by an information provider by querying the underlyin
 
 
 
-    1.  **Place-holder values**
+### A.2 Place-holder values
 
 This section describes a number of values that MAY be represented within a given address space (e.g., Strings/UTF-8, Integers, FQDNs, IPv4 address space).  Each of the different types are introduced along with the place-holder value and a brief discussion on usage, rational and any other considerations.
 
 
 
-    1.  **Extended booleans**
+### A.3 Extended booleans
 
 The reserved value "undefined" SHOULD be used. The way to express that no value is published MUST be defined in the documents defining the realization to concrete data models (e.g., [GLUE-REAL]).
 
 
 
-    1.  **Simple strings**
+### A.4 Simple strings
 
  (ASCII/UTF-8) should use "UNDEFINEDVALUE" or should start "UNDEFINEDVALUE:"
 
@@ -15646,7 +15642,7 @@ Using UNDEFINEDVALUE is a default option for strings that have no widely-known s
 
 
 
-    1.  **Fully qualified domain names**
+### A.5 Fully qualified domain names
 
 They MUST use a hostname ending either "example.org" for scenario 1, or "invalid" for scenario 2.
 
@@ -15670,7 +15666,7 @@ site-local-BDII.invalid
 
 
 
-    1.  **IPv4 address**
+### A.6 IPv4 address
 
 It MUST use 192.0.2.250
 
@@ -15680,7 +15676,7 @@ The best option is an IP address from the 192.0.2.0/24 subnet.  This subnet is d
 
 
 
-    1.  **IPv6 addr**
+### A.7 IPv6 addr
 
 It MUST use 2001:DB8::FFFF
 
@@ -15688,7 +15684,7 @@ There is no documented undefined IPv6 address.  RFC 3849 reserves the address pr
 
 
 
-    1.  **Integers **
+### A.8 Integers
 
 It MUST use "all nines"
 
@@ -15706,7 +15702,7 @@ The number was chosen for three reasons.  First, attribute scales are often chos
 
 
 
-    1.  **File path**
+### A.9 File path
 
 It MUST start either "/UNDEFINEDPATH" or "\UNDEFINEDPATH".
 
@@ -15726,7 +15722,7 @@ Examples:
 
 
 
-    1.  **Email addresses**
+### A.10 Email addresses
 
 It MUST use an undefined FQDN for the domain.
 
@@ -15747,8 +15743,7 @@ Examples:
     local-admin@example.org
 
 
-
-    1.  **Uniform Resource Identifier (URI)**
+### A.11  Uniform Resource Identifier (URI)
 
 It is schema-specific
 
@@ -15786,7 +15781,7 @@ Examples:
 
 
 
-    1.  **X.509 Distinguished Names**
+### A.12 X.509 Distinguished Names
 
 It MUST start O=Grid,CN=UNDEFINEDUSER
 
@@ -15806,7 +15801,7 @@ Examples:
 
 
 
-    1.  **Fully Qualified Attribute Name (FQAN)**
+### A.13 Fully Qualified Attribute Name (FQAN)
 
 It MUST use a VO of "vo.example.org" (for scenario 1.) or "unknown.invalid" (for scenario 2).
 
@@ -15834,7 +15829,7 @@ Examples:
 
 
 
-    1.  **Geographic locations**
+### A.14 Geographic locations
 
 It MUST use longitude 0 degrees, latitude 0 degrees.
 
@@ -15846,13 +15841,13 @@ By a happy coincidence, the (0,0) location is within the Atlantic Ocean, some 38
 
 
 
-1.  **Data Types**
+## B. Data Types
 
 This section contains the definition of attribute types defined within this model. The enumerated types may be either closed or open. For properties whose type defines a closed enumeration, one of the defined values MUST be chosen; any other value is not valid. For properties whose type defines an open enumeration, one of the defined values MAY be chosen, but nevertheless any other value compatible with the string type and with the recommended syntax is allowed. Before defining a new open enumeration value, it is recommended to apply the "GLUE2 Enumerations procedures and best practices" ([http://redmine.ogf.org/projects/glue-wg/wiki/Enumerations_procedures_and_best_practices_v10](http://redmine.ogf.org/projects/glue-wg/wiki/Enumerations_procedures_and_best_practices_v10)).The enumeration values MUST be lower-case.
 
 
 
-1.  **AccessLatency_t**
+### B.1 AccessLatency_t
 
 Closed enumeration:
 
@@ -15887,9 +15882,9 @@ Closed enumeration:
 
 
 
-1.  **AccType_t \
- \
-Open enumeration:**
+### B.1 AccType_t
+
+Open enumeration:
 
 <table>
   <tr>
@@ -15923,7 +15918,7 @@ Value
 
 
 
-1.  **AppEnvState_t**
+### B.3 AppEnvState_t
 
 Open enumeration: 
 
@@ -16000,7 +15995,7 @@ Open enumeration:
 
 
 
-1.  **ApplicationHandle_t**
+### B.4 ApplicationHandle_t
 
 Open enumeration: 
 
@@ -16041,7 +16036,7 @@ Open enumeration:
 
 
 
-1.  **Benchmark_t**
+### B.5 Benchmark_t
 
 Open enumeration:
 
@@ -16094,7 +16089,7 @@ Open enumeration:
 
 
 
-1.  **Capability_t**
+### B.6 Capability_t
 
 List of values initially drafted from [OMII-DJRA2.1, OGF-GFD80]. Open enumeration:
 
@@ -16297,7 +16292,7 @@ List of values initially drafted from [OMII-DJRA2.1, OGF-GFD80]. Open enumeratio
 
 
 
-1.  **CloudComputingInstanceState_t**
+### B.7 CloudComputingInstanceState_t
 
 For the values of this type, we RECOMMEND the following syntax: 
 
@@ -16363,7 +16358,7 @@ For more information on the BES state model, see [BES].
 
 
 
-1.  **CloudComputingInstanceType_t**
+### B.8 CloudComputingInstanceType_t
 
 Closed enumeration: 
 
@@ -16398,7 +16393,7 @@ Closed enumeration:
 
 
 
-1.  **CloudComputingManagerType_t**
+### B.9 CloudComputingManagerType_t
 
 Open enumeration: 
 
@@ -16451,7 +16446,7 @@ Open enumeration:
 
 
 
-1.  **CloudResourceName_t**
+### B.10 CloudResourceName_t
 
 Closed enumeration: 
 
@@ -16546,7 +16541,7 @@ Closed enumeration:
 
 
 
-1.  **ComputingActivityState_t**
+### B.11 ComputingActivityState_t
 
 For the values of this type, we RECOMMEND the following syntax: 
 
@@ -16620,7 +16615,8 @@ This attribute type is an open enumeration. Examples of additional values are:
     *   NorduGrid defined an extension the bes:pending by adding two substates:
         *   nordugrid-bes:pending:accepting
         *   nordugrid-bes:pending:accepted
-1.  **ComputingActivityType_t**
+	
+### B.12 ComputingActivityType_t
 
 Closed enumeration: 
 
@@ -16661,7 +16657,7 @@ Closed enumeration:
 
 
 
-1.  **ComputingManagerType_t**
+### B.13 ComputingManagerType_t
 
 Open enumeration: 
 
@@ -16732,7 +16728,7 @@ Open enumeration:
 
 
 
-1.  **ContactType_t**
+## B.14 ContactType_t
 
 Open enumeration:
 
@@ -16773,7 +16769,7 @@ Open enumeration:
 
 
 
-1.  **ContextualizationName_t**
+## B.15 ContextualizationName_t
 
  
 
@@ -16804,7 +16800,7 @@ Open enumeration:
 
 
 
-1.  **CPUMultiplicity_t**
+## B.16 CPUMultiplicity_t
 
 Closed enumeration: 
 
@@ -16845,7 +16841,7 @@ Closed enumeration:
 
 
 
-1.  **CPUVirtualizationT_t**
+## B.17 CPUVirtualizationT_t
 
 Open enumeration: 
 
@@ -16880,7 +16876,7 @@ Open enumeration:
 
 
 
-1.  **DataStoreType_t**
+## B.18 DataStoreType_t
 
 Open enumeration:
 
@@ -16915,7 +16911,7 @@ Open enumeration:
 
 
 
-1.  **DateTime_t**
+## B.19 DateTime_t
 
 The DateTime_t is based on the extended ISO 8061 format: 
 
@@ -16928,7 +16924,8 @@ This data type maps the dateTime XSD simple type. We restrict this syntax to UTC
 
 
 *   yyyy '-' mm '-' dd 'T' hh ':' mm ':' ss 'Z'
-1.  **DiskVirtualizationT_t**
+
+## B.20 DiskVirtualizationT_t
 
 Open enumeration:
 
@@ -16960,10 +16957,7 @@ Open enumeration:
   </tr>
 </table>
 
-
-
-
-1.  **DN_t**
+## B.21 DN_t
 
 Distinguished Name as defined by RFC 4514 (http://www.rfc-editor.org/rfc/rfc4514.txt).
 
@@ -16971,7 +16965,7 @@ X.509 uses a X.500 namespace, represented as several Relative Domain-Names (RDNs
 
 
 
-1.  **EndpointAuthentication_t**
+## B.22 EndpointAuthentication_t
 
 Open enumeration:
 
@@ -17006,7 +17000,7 @@ Open enumeration:
 
 
 
-1.  **EndpointHealthState_t**
+## B.23 EndpointHealthState_t
 
 Closed enumeration:
 
@@ -17059,7 +17053,7 @@ Closed enumeration:
 
 
 
-1.  **EndpointTechnology_t**
+## B.24 EndpointTechnology_t
 
 Open enumeration:
 
@@ -17094,7 +17088,7 @@ Open enumeration:
 
 
 
-1.  **ExpirationMode_t**
+## B.25 ExpirationMode_t
 
 Closed enumeration: 
 
@@ -17131,7 +17125,7 @@ authorized clients, or have had their lifetimes increased
 
 
 
-1.  **ExtendedBoolean_t**
+## B.26 ExtendedBoolean_t
 
 Closed enumeration:
 
@@ -17166,7 +17160,7 @@ Closed enumeration:
 
 
 
-1.  **HostAccessInfo_t**
+## B.27 HostAccessInfo_t
 
 Closed enumeration:
 
@@ -17201,7 +17195,7 @@ Closed enumeration:
 
 
 
-1.  **InterfaceName_t**
+## B.28 InterfaceName_t
 
 Open enumeration: 
 
@@ -17230,7 +17224,7 @@ Open enumeration:
 
 
 
-1.  **JobDescription_t**
+## B.29 JobDescription_t
 
 Open enumeration: 
 
@@ -17277,7 +17271,7 @@ Open enumeration:
 
 
 
-1.  **License_t**
+## B.30 License_t
 
 Open enumeration:
 
@@ -17312,7 +17306,7 @@ Open enumeration:
 
 
 
-1.  **LocalID_t**
+## B.31 LocalID_t
 
 The base type is the string with the following restrictions: 
 
@@ -17321,7 +17315,8 @@ The base type is the string with the following restrictions:
 *   first char in a-zA-Z 
 *   following characters in [\w\-\.\:]
     *   \w = [a-zA-Z_0-9]
-1.  **NetworkInfo_t**
+
+## B.32 NetworkInfo_t
 
 Open enumeration:
 
@@ -17362,7 +17357,7 @@ Open enumeration:
 
 
 
-1.  **NetworkTrafficProtocol_t**
+## B.33 NetworkTrafficProtocol_t
 
 Open enumeration:
 
@@ -17409,7 +17404,7 @@ Open enumeration:
 
 
 
-1.  **NetworkTrafficDirection_t**
+## B.34 NetworkTrafficDirection_t
 
 Open enumeration:
 
@@ -17438,13 +17433,13 @@ Open enumeration:
 
 
 
-1.  **NetworkTrafficAddressRange_t**
+## B.35 NetworkTrafficAddressRange_t
 
 The base type is the string limited to the CIDR range address notation: like 192.168.0.0/16, fc00::/7 or 8.8.8.8./32:
 
 
 
-1.  **NetworkTrafficPort_t**
+## B.36 NetworkTrafficPort_t
 
 The base type is the string limited to one of  the following possible formats:
 
@@ -17453,7 +17448,8 @@ The base type is the string limited to one of  the following possible formats:
 *   Specification of a port: 80
 *   Specification of multiple ports: 80,443
 *   Specification of a range of ports: 25000:25009
-1.  **NetworkType_t**
+
+## B.37 NetworkType_t
 
 Open enumeration:
 
@@ -17494,7 +17490,7 @@ Open enumeration:
 
 
 
-1.  **NetVirtualizationT_t**
+## B.38 NetVirtualizationT_t
 
 Open enumeration:
 
@@ -17541,7 +17537,7 @@ Open enumeration:
 
 
 
-1.  **OSFamily_t**
+## B.39 OSFamily_t
 
 Open enumeration: 
 
@@ -17582,7 +17578,7 @@ Open enumeration:
 
 
 
-1.  **OSName_t**
+## B.40 OSName_t
 
 Open enumeration: 
 
@@ -17689,7 +17685,7 @@ Open enumeration:
 
 
 
-1.  **Period_t**
+## B.1 Period_t
 
 Open enumeration: 
 
@@ -17736,7 +17732,7 @@ Open enumeration:
 
 
 
-1.  **Platform_t**
+## B.42 Platform_t
 
 Open enumeration: 
 
@@ -17783,7 +17779,7 @@ Open enumeration:
 
 
 
-1.  **PolicyScheme_t**
+## B.43 PolicyScheme_t
 
 Open enumeration:
 
@@ -17829,7 +17825,8 @@ Examples of policies expressed using the basic syntax are:
     *   matches the user proving to have a certificate identified by this DN
 *   `vo:/vo_a `
     *   matches all the users proving to be part of the vo_a
-1.  **QualityLevel_t**
+
+## B.44 QualityLevel_t
 
 Closed enumeration:
 
@@ -17870,7 +17867,7 @@ Closed enumeration:
 
 
 
-1.  **ReservationPolicy_t**
+## B.45 ReservationPolicy_t
 
 Closed enumeration: 
 
@@ -17905,7 +17902,7 @@ Closed enumeration:
 
 
 
-1.  **ResourceScope_t**
+## B.46 ResourceScope_t
 
 Open enumeration: 
 
@@ -17970,7 +17967,7 @@ Open enumeration:
 
 
 
-1.  **RetentionPolicy_t**
+## B.47 RetentionPolicy_t
 
 Open enumeration: 
 
@@ -18005,7 +18002,7 @@ Open enumeration:
 
 
 
-1.  **SchedulingPolicy_t**
+## B.49 SchedulingPolicy_t
 
 Open enumeration: 
 
@@ -18040,7 +18037,7 @@ Open enumeration:
 
 
 
-1.  **ServiceType_t**
+## B.49 ServiceType_t
 
 The RECOMMENDED syntax is in reverse-DNS prefix. The first element is a top-level domain, while the second element is a namespace (the namespace MAY be related to a middleware name, an organization or other concepts; org.ogf.glue is reserved for the OGF GLUE Working Group). The defining body SHOULD have a claim on the corresponding forward DNS name (e.g., org.nordugrid.arex SHOULD be defined by the owners of the nordugrid.org domain name).
 
@@ -18179,7 +18176,7 @@ The RECOMMENDED syntax is in reverse-DNS prefix. The first element is a top-leve
 
 
 
-1.  **ServingState_t**
+## B.50 ServingState_t
 
 Closed enumeration:
 
@@ -18220,7 +18217,7 @@ Closed enumeration:
 
 
 
-1.  **Staging_t**
+## B.51 Staging_t
 
 Closed enumeration: 
 
@@ -18261,7 +18258,7 @@ Closed enumeration:
 
 
 
-1.  **StorageAccessProtocol_t**
+## B.52 StorageAccessProtocol_t
 
 Open enumeration: 
 
@@ -18350,7 +18347,7 @@ Open enumeration:
 
 
 
-1.  **StorageCapacity_t**
+## B.53 StorageCapacity_t
 
 Open enumeration: 
 
@@ -18403,7 +18400,7 @@ Open enumeration:
 
 
 
-1.  **StorageManagerType_t**
+## B.54 StorageManagerType_t
 
 Open enumeration:
 
@@ -18468,7 +18465,7 @@ Open enumeration:
 
 
 
-1.  **VirtType_t**
+## B.55 VirtType_t
 
     Open enumeration: 
 
