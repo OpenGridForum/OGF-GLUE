@@ -64,7 +64,7 @@ The GLUE specification is an information model for Grid entities described using
 
 
 
-1.  **Introduction**
+## 1. Introduction
 
 In this document, we present a conceptual information model for Grid and Cloud entities described using natural language and enriched with a graphical representation using UML Class Diagrams. As a conceptual model, it is designed to be independent from the concrete data models adopted for its implementation. Rendering to concrete data models such XML Schema, LDAP Schema, JSON schema and SQL are provided in a separate document. From the semantic viewpoint, the concrete data models SHOULD represent the same concepts and relationships of the conceptual information model; nevertheless they MAY contain simplifications targeted at improving query performance or other aspects of interest.
 
@@ -74,7 +74,7 @@ The mapping to concrete data models will be published in separate documents. Pro
 
 
 
-1.  **Change-log**
+## 2. Change-log
 
 The following table provides a list of changes from the past GLUE editions
 
@@ -109,13 +109,13 @@ The following table provides a list of changes from the past GLUE editions
 
 
 
-1.  **Notational Conventions**
+## 3. Notational Conventions
 
 The key words "MUST", "MUST NOT," "REQUIRED," "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",  and "OPTIONAL" are to be interpreted as described in RFC 2119 (see http://www.ietf.org/rfc/rfc2119.txt). All class names are written using `this font`.
 
 
 
-1.  **General Statements**
+## 4. General Statements
 
 The Information Model and its renderings MUST treat strings, both entity and attribute names and their values, as being case-sensitive. Each GLUE entity MUST have an ID attribute (an exception is made for the `Extension` class) which is needed for identification or for access to the attributes of the related entity over time and across different information sources. As a general guideline, ID's SHOULD be persistent at least for a day when assigned to an entity. The ID MUST NOT be interpreted by the user or the system as having any meaning other than an identifier. In particular, there is no relationship between an ID and a network endpoint. Every ID MUST be a valid URI. The usage of URN (Uniform Resource Name, a subset of Uniform Resource Identifier or URI) is RECOMMENDED. The motivations for choosing URI's reside in the fact that Grid services are evolving towards Web-based technologies, therefore it is meaningful to adopt the same identification system.
 
@@ -133,7 +133,7 @@ The extensibility regarding the addition of new classes and associations is not 
 
 
 
-1.  ** Template**
+## 5. Template
 
 In order to enrich the UML Class Diagrams with additional information, a table for each UML class is provided.  This descriptive table is composed of three parts.  
 
@@ -249,7 +249,7 @@ The third part refers to the associations (association, composition, aggregation
 
 
 
-1.  **Conceptual Model of the Main Entities**
+## 6. Conceptual Model of the Main Entities
 
 This section introduces the main entities of the GLUE information model. They capture the core concepts relevant in a Grid environment. The main entities SHOULD be used to derive specialized information models. In Figure 1, the classes and the related relationships are presented in the form of a UML Class Diagram.
 
@@ -261,7 +261,7 @@ This section introduces the main entities of the GLUE information model. They ca
 
 
 
-    1.  Entity
+### 6.1 Entity
 
 The `Entity` class is the root entity from which all the GLUE classes inherit (an exception is made for the `Extension` class). The specialized classes will inherit both the associations and the attributes of `Extension` class. The attributes CreationTime and Validity are metadata related to the generation and life of the information. The Name attribute allows a human-readable name to be provided for any object, usable for e.g. monitoring or diagnostic displays. The Name SHOULD NOT have any semantic interpretation.
 
@@ -380,7 +380,7 @@ the information SHOULD NOT be considered relevant.
 
 
 
-    1.  Extension
+### 6.2 Extension
 
 The `Extension` class provides a general mechanism to add key/value pairs to GLUE classes when suitable specific attributes are not present. The creation time and validity of each `Extension` instance are those of the extended class instance. 
 
@@ -471,7 +471,7 @@ The `Extension` class provides a general mechanism to add key/value pairs to GLU
 
 
 
-    1.  Location
+### 6.3 Location
 
 The `Location` class is introduced to model geographical locations where a certain `Domain` or `Service` are placed. The aim is to provide a simple way to express geographical information, and it is not intended to be used in complex geographical information systems. Due to different requirements, the granularity is not strictly defined and is left to the information producers depending on their needs. Hence the extent of a geographical location can vary from an exact position to a region spanning several different countries, not necessarily adjacent. The accuracy of the latitude and longitude attributes should be defined in an interoperability profile defined by projects adopting this specification.
 
@@ -736,7 +736,7 @@ The `Location` class is introduced to model geographical locations where a certa
 
 
 
-    1.  Contact
+### 6.4 Contact
 
 The `Contact` class is introduced to represent contact information for different groups or expert roles responsible for aspects of the operation of services and domains (e.g., user support, security or sysadmin). The various types of contact are identified by the Type attribute. In case of time-dependent contact information (e.g., due to work on shifts), the instances of this entity should represent only the currently active contact information.  
 
@@ -961,7 +961,7 @@ Entity
 
 
 
-    1.  Domain
+### 6.5 Domain
 
 The `Domain` class is introduced to model and identify groups of actors that MAY play roles in a Grid system. It is an abstract entity that MUST NOT be instantiated; it SHOULD be used in order to derive specialized entities.
 
@@ -1140,7 +1140,7 @@ The `Domain` class is introduced to model and identify groups of actors that MAY
 
 
 
-        1.  AdminDomain
+  #### 6.5.1 AdminDomain
 
 The `AdminDomain` class is introduced to model a collection of actors that manage a number of services. An `AdminDomain` MAY be associated to both `Contact` and `Location` class instances in order to provide contact information and geographical location respectively. An `AdminDomain` MAY be composed by other `AdminDomains` in a hierarchical structure. This structure MAY represent a "participates in" association.
 
@@ -1389,7 +1389,7 @@ The `AdminDomain` class is introduced to model a collection of actors that manag
 
 
 
-        1.  UserDomain
+ #### 6.5.2 UserDomain
 
 The `UserDomain` class SHOULD be used to capture the concept of a Virtual Organization (VO). By VO, we mean a set of individuals and/or institutions having direct access to computers, software, data, and other resources for collaborative problem-solving or other purposes. Resources utilized by a VO are expected to be accessible via network endpoints and constrained by defined utilization targets called shares. The VO MAY exhibit its internal structure in terms of groups of individuals, each of them constituting a `UserDomain`. `UserDomains` MAY be hierarchically structured. The "participates in" association MAY represent this structure.
 
@@ -1644,7 +1644,7 @@ As regards the UserManager attribute, it is RECOMMENDED that its value is an End
 
 
 
-    1.  Service
+ ### 6.6 Service
 
 One of the main goals of the GLUE information model is to enable the discovery of the Grid capabilities available in a certain infrastructure. Based on the use cases and modeling experience, a number of concepts were identified as general building blocks: `Endpoint`, `Share`, `Manager`, `Resource. `The` Service` class enables the unique identification of instances of these concepts participating in the provision of some unified capability.  The` Service` class SHOULD be also used to characterize this overall capability.
 
@@ -1899,7 +1899,7 @@ A simple `Service` aggregates an `Endpoint`, no `Share`, no `Manager` and no `Re
 
 
 
-    1.  Endpoint
+### 6.7 Endpoint
 
 The `Endpoint` class models a network location that can be contacted to access certain functionalities based on a well-defined interface. The defined attributes refer to aspects such as the network location, the exposed interface name and version, the details of the implementation, the functional state and the scheduled downtime.
 
@@ -2362,7 +2362,7 @@ Concerning the SupportedProfile attribute, if there is no recommended URI for th
 
 
 
-    1.  Share
+### 6.8 Share
 
 The `Share` class is an abstract entity that MUST NOT be instantiated; it SHOULD be used in order to derive specialized entities. At this level, it is introduced to capture the concept of a utilization target, that is a constrained usage of service functionalities or resources that MAY be created based on aspects such as identify or UserDomain membership, usage information or resource characteristics.
 
@@ -2555,7 +2555,7 @@ The `Share` class is an abstract entity that MUST NOT be instantiated; it SHOULD
 
 
 
-    1.  Manager
+### 6.9 Manager
 
 The `Manager` class is an abstract entity that MUST NOT be instantiated; it SHOULD be used in order to derive specialized entities. At this level, it is introduced to capture the characteristics of a local software layer (not directly exposed via an Endpoint) which has control of the underlying resources. The functionalities of a manager layer that need to be accessible by remote users are typically abstracted by a middleware component via a standard interface, and are modeled by the concept of `Endpoint.` Examples of managers are: for computing resources, batch systems such as OpenPBS or LSF; for storage resources, GPFS or HPSS. 
 
@@ -2734,7 +2734,7 @@ The `Manager` class is an abstract entity that MUST NOT be instantiated; it SHOU
 
 
 
-    1.  Resource
+### 6.10 Resource
 
 The `Resource` class is an abstract entity that MUST NOT be instantiated; it SHOULD be used in order to derive specialized entities. It is introduced to identify and model hardware entities providing capabilities which are exposed via `Endpoints`. Examples are execution environments for computational activities or data stores for data.
 
@@ -2901,7 +2901,7 @@ The `Resource` class is an abstract entity that MUST NOT be instantiated; it SHO
 
 
 
-    1.  Activity
+### 6.11 Activity
 
 The `Activity` class models units of work which are submitted to `Services` via `Endpoints`. Grid jobs, i.e. Computing Activities in GLUE, are example of `Activities` for a Computing Service. An interesting type of relationship for jobs derives from their propagation through several `Services`. For instance, a broker `Service` submits a Grid job to a selected execution `Service;` upon completion the execution `Service` submits a logging record to an accounting `Service`. Each of these `Services` may have associated an instance of a Grid `Activity` related to the lifecycle of the job within the service. All instances refer to the same conceptual job submitted by the user.
 
@@ -3098,7 +3098,7 @@ The `Activity` class models units of work which are submitted to `Services` via 
 
 
 
-    1.  Policy
+### 6.12 Policy
 
 The `Policy` class is an abstract entity that MUST NOT be instantiated; it SHOULD be used in order to derive specialized entities. This class is introduced to model statements, rules or assertions that define the correct or expected behavior of entities. Two specializations are introduced: `AccessPolicy` related to `Endpoints` and `MappingPolicy` related to `Shares`.
 
@@ -3279,7 +3279,7 @@ The published `Policies` do not represent a contract, and hence the associated `
 
 
 
-        1.  AccessPolicy
+#### 6.12.1 AccessPolicy
 
 The `AccessPolicy` class is a specialization of the `Policy` class. This entity MAY be used to express authorization rules, e.g.  which `UserDomains` MAY access a certain service `Endpoint`. The granularity of these policies SHOULD be coarse-grained and suitable for pre-selection of services. The actual decision on the service side is performed by an authorization component that MAY contain a finer-grained set of policy rules that in some case MAY contradict the published coarse-grained policy rules. The default policy is assumed to be to deny access, hence `Endpoints `for which there are no matching Rules SHOULD NOT be selected for possible use.
 
@@ -3462,7 +3462,7 @@ Examples of actors involved in this entity are `UserDomains` representing VOs or
 
 
 
-        1.  MappingPolicy
+#### 6.12.2 MappingPolicy
 
 The `MappingPolicy` class is a specialization of the `Policy` class. This entity MAY be used to express which `UserDomains` MAY consume a certain share of resources. The granularity of these policies SHOULD be coarse-grained and suitable for pre-selection of services. The actual decision on the service side is performed by an authorization component that MAY contain a finer-grained set of policy rules that in some case MAY contradict the published coarse-grained policy rules.
 
@@ -3647,7 +3647,7 @@ When evaluating the mapping to a certain `Share` using the algorithm implied by 
 
 
 
-1.  **Conceptual Model of the Computing Service**
+## 7. Conceptual Model of the Computing Service
 
 The conceptual model of the Computing Service is based on the main entities and uses specializations of the `Service`, `Endpoint`, `Share`, `Manager`, `Resource`, and `Activity` entities.  Further computing related concepts such as `Application Environment`, `Application Handle` and `Benchmark` are introduced.
 
@@ -3671,7 +3671,7 @@ Throughout the specification, we also use the concept of storage extent to mean 
 
 
 
-    1.  ComputingService
+## 7.1 ComputingService
 
  \
 The `ComputingService` class is a specialization of the `Service` class for a service offering computational capacity. The `ComputingService` entity is the main logical unit, and aggregation point for several entities together modeling a computing capability in a Grid system. A `ComputingService` is capable of executing `ComputingActivities` on its associated resources. The resources behind the `ComputingService` are described via the `ComputingManager`, `ExecutionEnvironment`, `ApplicationEnvironment`, `ApplicationHandle` and `Benchmark` entities. The governing policies and status of the resources are given by the `ComputingShare` elements. The `ComputingActivities` of a `ComputingService` are submitted and controlled via a `ComputingEndpoint`.
@@ -4005,7 +4005,7 @@ The `Computing Service` always aggregates `Computing Endpoints`, `Computing Shar
 
 
 
-    1.  ComputingEndpoint
+### 7.2 ComputingEndpoint
 
 The `ComputingEndpoint` is a specialization of the `Endpoint` class for a service possessing computational capability. The class represents an endpoint which is used to create, control and monitor computational activities. The computational-specific information concerns service load related parameters, staging capabilities and supported types of job description. This class provides attributes that MAY be used to publish summary information about jobs submitted via a particular Endpoint. Such attributes are optional and may not always be measurable (e.g., in the case of a stateless Endpoint which does not keep information about the jobs submitted through it). 
 
@@ -4562,7 +4562,7 @@ The `ComputingEndpoint` is a specialization of the `Endpoint` class for a servic
 
 
 
-    1.  ComputingShare
+### 7.3 ComputingShare
 
 The `ComputingShare` class is the specialization of the main `Share` class for computational services. A Computing Share is a high-level concept introduced to model a utilization target for a set of Execution Environments defined by a set of configuration parameters and characterized by status information. A `ComputingShare` carries information about "policies" (limits) defined over all or a subset of resources and describes their dynamic status (load). 
 
@@ -5290,7 +5290,7 @@ As regards CPU Time and Wallclock Time related properties, there is a need to ha
 
 
 
-    1.  ComputingShareAcceleratorInfo
+### 7.4 ComputingShareAcceleratorInfo
 
 The ComputingShareAcceleratorInfo class contains all the information about the usage level of  the accelerator device bound to the computing share.
 
@@ -5483,7 +5483,7 @@ The ComputingShareAcceleratorInfo class contains all the information about the u
 
 
 
-    1.  ComputingManager
+### 7.5 ComputingManager
 
 The `ComputingManager` class is a specialization of the `Manager` class for the computational capability. The `ComputingManager` is responsible for the local control of resources, and this layer is not exposed directly to external clients. The operating system might be the simplest case of a Computing Manager, but the `ComputingManager` is often realized by means of a Local Resource Management (LRMS) "batch" system. A Computing Service will usually only have one Computing Manager, but MAY have more. The class provides aggregated information on controlled resources, and also describes local storage extents accessible to jobs.
 
@@ -6015,7 +6015,7 @@ In case there is a dedicated working area for multi-slot jobs, this SHOULD be re
 
 
 
-    1.  ComputingManagerAcceleratorInfo
+### 7.6 ComputingManagerAcceleratorInfo
 
 The ComputingManagerAcceleratorInfo contains information about the accelerator device handled by the computing manager.
 
@@ -6208,7 +6208,7 @@ The ComputingManagerAcceleratorInfo contains information about the accelerator d
 
 
 
-    1.  Benchmark
+### 7.7 Benchmark
 
 The `Benchmark` class characterizes the relative performance of the computing resource by providing the result of a specific benchmark suite executed on the computing resource underlying the Computing Service. The `Benchmark` class provides the both the type and the value of the benchmark.
 
@@ -6401,7 +6401,7 @@ The `Benchmark` class characterizes the relative performance of the computing re
 
 
 
-    1.  ExecutionEnvironment
+### 7.8 ExecutionEnvironment
 
 The `ExecutionEnvironment` class describes the hardware and operating system environment in which a job will run. It represents a set of homogeneous Worker Nodes, so if a computing system contains nodes with significantly different properties there MAY be several `ExecutionEnvironment` instances. This implies that it should be possible to request a specific environment when a job is submitted. The `ExecutionEnvironment` MAY refer to virtual rather than physical machines.
 
@@ -6788,7 +6788,7 @@ Each Execution Environment instance is under the control of a Computing Manager 
 
 
 
-        1.  AcceleratorEnvironment
+#### 7.8.1 AcceleratorEnvironment
 
 The AcceleratorEnvironment is an entity used to describe an homogeneous set of accelerator processors. This entity is associated with one or more execution environments.
 
@@ -7041,7 +7041,7 @@ The AcceleratorEnvironment is an entity used to describe an homogeneous set of a
 
 
 
-    1.  ApplicationEnvironment
+### 7.9 ApplicationEnvironment
 
 The `ApplicationEnvironment` class describes the software environment in which a job will run, i.e. what pre-installed software will be available to it. Each Application is identified by a name (the AppName attribute); these names are not defined within the schema, but SHOULD be assigned in a way which allows applications to be uniquely identified. In some deployment scenarios, the definition of namespace-based AppNames or guidelines for the generation of unique application names MAY be specified, and application repository services relying on those application names MAY be provided. This aspect is considered out of scope for the GLUE schema specification, but MAY be included in a profile document for a specific production Grid.
 
@@ -7386,7 +7386,7 @@ The properties of installed software may vary substantially, but the attributes 
 
 
 
-    1.  ApplicationHandle
+### 7.10 ApplicationHandle
 
 The `ApplicationHandle` class is an extension to `ApplicationEnvironment` for applications which need to be set up in some way before they can be used. For each supported setup method a string MAY be specified, the interpretation of which is specific to the method - in the simplest case this could just be a setup script to execute. A single Application MAY support multiple setup methods.
 
@@ -7555,7 +7555,7 @@ The `ApplicationHandle` class is an extension to `ApplicationEnvironment` for ap
 
 
 
-    1.  ComputingActivity
+### 7.11 ComputingActivity
 
 The `ComputingActivity` class represents a single (but possibly multi-processor) job. The attributes give the job properties and state as seen by the local batch system, together with some Grid-level information.
 
@@ -8174,7 +8174,7 @@ As regards the State attribute and the related ComputingActivityState_t type, we
 
 
 
-    1.  ToStorageService
+### 7.12 ToStorageService
 
 The `ToStorageService` class represents the case where a filesystem from a Storage Service is available to jobs running on a Computing Service via POSIX access, e.g. as an NFS mount. Each `ToStorageService` instance represents a single mount point. It is assumed that such mounts are available on all nodes (i.e. all Execution Environments) in the Computing Service.
 
@@ -8351,7 +8351,7 @@ The `ToStorageService` class represents the case where a filesystem from a Stora
 
 
 
-1.  **Conceptual Model of the Cloud Computing Service**
+## 8. Conceptual Model of the Cloud Computing Service
 
 The conceptual model of the Cloud Infrastructure as a Service Compute Service is based on the main entities and uses specializations of the `Service`, `Endpoint`, `Share`, `Manager` and `Resource`.  Further cloud computing related concepts such as `Compute Image`, `Compute Price` and `Benchmark` are introduced. 
 
@@ -8381,7 +8381,7 @@ A Cloud Computing service relates directly to a Cloud Infrastructure-as-a-Servic
 
 
 
-    1.  CloudComputingService
+### 8.1 CloudComputingService
 
  \
 The `CloudComputingService` class is a specialization of the `Service` class for a service offering Cloud Infrastructure as a Service computational capacity. The `CloudComputingService` entity is the main logical unit, and aggregation point for several entities together modeling a computing infrastructure capability in a Cloud system. A `CloudComputingService` is capable of executing `CloudComputingInstance` on its associated resources. The resources behind the `CloudComputingService` are described via the `CloudComputingManager`, `CloudComputingInstanceType`, `CloudComputingImage` and `Benchmark` entities. The governing policies and status of the resources are given by the `CloudComputingShare` elements. The `CloudComputingInstance` of a `CloudComputingService` are submitted and controlled via a `CloudComputingEndpoint`.
@@ -8743,7 +8743,7 @@ A simple `CloudComputingService` is formed by a `CloudComputingEndpoint` exposin
 
 
 
-    1.  CloudComputingEndpoint
+### 8.2 CloudComputingEndpoint
 
 The `CloudComputingEndpoint` is a specialization of the `Endpoint` class for a service possessing cloud Infrastructure-as-a-Service capability. The class represents an endpoint which is used to create, control and monitor Cloud computing activities. The specific information concerns service status and interface capabilities. This class provides attributes that MAY be used to publish summary information about VM instantiated via a particular Endpoint. Such attributes are optional and may not always be measurable (e.g., in the case of a stateless Endpoint which does not keep information about the VM instantiated through it). 
 
@@ -9192,7 +9192,7 @@ The `CloudComputingEndpoint` is a specialization of the `Endpoint` class for a s
 
 
 
-    1.  CloudComputingShare
+### 8.3 CloudComputingShare
 
 The `CloudComputingShare` class is the specialization of the main `Share` class for cloud Infrastructure-as-a-Service. A `CloudComputingShare` is a high-level concept introduced to model a utilization target for a pool of resources, sometimes referred as Zones or Sites, defined by a homogeneous set of configuration parameters and characterized by single status information. A `CloudComputingShare` carries information about "policies" (limits) defined over all or a subset of resources and describes their dynamic status (load).
 
@@ -9571,7 +9571,7 @@ The `CloudComputingShare` stores also a set of `CloudComputingImage` and `CloudC
 
 
 
-    1.  CloudComputingShareAcceleratorInfo
+### 8.4 CloudComputingShareAcceleratorInfo
 
 The CloudComputingShareAcceleratorInfo contains all the information about the usage level of the virtual accelerator device bound to the cloud computing share.
 
@@ -9740,7 +9740,7 @@ The CloudComputingShareAcceleratorInfo contains all the information about the us
 
 
 
-    1.  CloudComputingManager
+### 8.5 CloudComputingManager
 
 The `CloudComputingManager` class is a specialization of the `Manager` class for the computational capability (Virtual Machines) manager. The `CloudComputingManager` is responsible for the local control of resources. The `CloudComputingManager` layer is not exposed directly to external clients or to the Virtual Machines themselves.
 
@@ -10107,7 +10107,7 @@ The Virtual Machine manager is usually referred as Hypervisor, thus a piece of s
 
 
 
-    1.  CloudComputingManagerAcceleratorInfo
+### 8.6 CloudComputingManagerAcceleratorInfo
 
 The CloudComputingManagerAcceleratorInfo contains all the information about the virtual accelerator device available for a given cloud computing manager.
 
@@ -10302,7 +10302,7 @@ AcceleratorInfo
 
 
 
-    1.  CloudComputingInstanceType
+### 8.7 CloudComputingInstanceType
 
 The `CloudComputingInstanceType `class describes the hardware environment of the VM, i.e. the amount of RAM, CPU, disk and network resources the VM OS will see and manage. The resources provided to the VM are virtual resources, usually shared with other VMs running in the same infrastructure. The performances of the provided resources are specified via the Benchmarks associated to the Instance Type.
 
@@ -10651,7 +10651,7 @@ The associated `CloudComputingPrice` entities define the price for the entire te
 
 
 
-        1.  CloudComputingVirtualAccelerator
+#### 8.7.1 CloudComputingVirtualAccelerator
 
 The CloudComputingVirtualAccelerator is an entity used to describe a set of homogeneous virtual accelerator devices. Generally a virtual accelerator device corresponds to physical one installed on the host. A cloud computing instance may be associated with one or more virtual accelerators.
 
@@ -10909,7 +10909,7 @@ The CloudComputingVirtualAccelerator is an entity used to describe a set of homo
 
 
 
-    1.  CloudComputingImage
+### 8.8 CloudComputingImage
 
 The `CloudComputingImage` class describes the software environment of the VM, i.e. which OS is booting at VM startup and which pre-installed software is available on it. Each application installed on the OS is identified by a name (the InstalledSoftware attribute); these names are not defined within the schema, but SHOULD be assigned in a way which allows applications to be uniquely identified. In some deployment scenarios, the definition of namespace-based InstalledSoftware or guidelines for the generation of unique application names MAY be specified, and application repository services relying on those application names MAY be provided. This aspect is considered out of scope for the GLUE schema specification, but MAY be included in a profile document for a specific production Clouds.
 
@@ -11340,7 +11340,7 @@ The OS disk size specified in the `CloudComputingImage` is the minimum disk size
 
 
 
-    1.  `CloudComputingImageAcceleratorInfo`
+### 8.9 `CloudComputingImageAcceleratorInfo`
 
 The `CloudComputingImageAcceleratorInfo` contains the information about the virtual accelerator devices required by a cloud computing image.
 
