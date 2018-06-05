@@ -15,26 +15,28 @@ Conversion notes:
 * Source doc: https://docs.google.com/a/nsfcac.org/open?id=1DbE41Z--2IYMnJJASnZLa85HKV9OeIN6LEd-4Cll91k
 * This document has images: inline image link in generated source and store images to your server.
 ----->
-GFD-R-P.xxx                                                                                                                       Authors:
-Category: Recommendation                                                                       Salvatore Pinto°, EGI.eu
-GLUE Working Group	                                                                          Sergio Andreozzi°, EGI.eu
-                                                                                                                          Stephen Burke, RAL
-http://forge.ogf.org/sf/projects/glue-wg                                                                  Felix Ehm, CERN   
-                                                                                                                      Laurence Field*, CERN
-Gerson Galang, ARCS
-Balazs Konya*, Lund University 
-Maarten Litmaath, CERN
-Paul Millar, DESY
-JP Navarro, ANL
+<table>
+<thead>
+	<tr><th align="left"> GFD-R-P.xxx </th> <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th> <th align="right"> Authors:</th></tr>
+</thead>
+<tr><td align="left"> Category: Recommendation                 </td> <td>&nbsp;</td> <td align="right"> Salvatore Pinto°, EGI.eu </td></tr>
+<tr><td align="left"> GLUE Working Group	               </td> <td>&nbsp;</td> <td align="right"> Sergio Andreozzi°, EGI.eu </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Stephen Burke, RAL </td></tr>
+<tr><td align="left"> http://forge.ogf.org/sf/projects/glue-wg </td> <td>&nbsp;</td> <td align="right"> Felix Ehm, CERN </td></tr>
+<tr><td aalign="left"> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> Laurence Field*, CERN </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Gerson Galang, ARCS </td></tr>
+<tr><td align: left";> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> Balazs Konya*, Lund University </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Maarten Litmaath, CERN </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Paul Millar, DESY </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> JP Navarro, ANL </td></tr>
+<tr></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> *co-chairs </td></tr>
+<tr><td aalign="left"> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> °editor </td></tr>
+<tr></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> October 8, 2013 </td></tr>
+</table>
 
-                                                                                                                      
-*co-chairs
-  									                            °editor
-
-October 8, 2013
-
-
-**GLUE Specification v 2.1-DRAFT**
+# GLUE Specification v 2.1-DRAFT
 
 <span style="text-decoration:underline;">Status of This Document</span>
 
