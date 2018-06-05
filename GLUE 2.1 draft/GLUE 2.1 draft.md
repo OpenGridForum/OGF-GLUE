@@ -15403,85 +15403,52 @@ A Denial of Service attack is one that attempts to prevent normal operation of s
 
 ## 12. Author Information
 
- \
-Sergio Andreozzi
-
-INFN-CNAF
-
-Viale Berti Pichat, 6/2
-
-40127 Bologna (Italy)
-
+Sergio Andreozzi \
+INFN-CNAF \
+Viale Berti Pichat, 6/2 \
+40127 Bologna (Italy) \
 E-mail:sergio.andreozzi@cnaf.infn.it
 
-Stephen Burke
-
-Science and Technology Facilities Council
-
-Rutherford Appleton Laboratory
-
-Harwell Science and Innovation Campus
-
-Chilton, Didcot, Oxfordshire, OX11 0QX (UK)
-
+Stephen Burke \
+Science and Technology Facilities Council \
+Rutherford Appleton Laboratory \
+Harwell Science and Innovation Campus \
+Chilton, Didcot, Oxfordshire, OX11 0QX (UK) \
 E-mail: s.burke@rl.ac.uk
 
-Felix Nikolaus Ehm
-
-CERN
-
-Route de Meyrin 385
-
-CH-1211 Geneva 23 (Switzerland)
-
+Felix Nikolaus Ehm \
+CERN \
+Route de Meyrin 385 \
+CH-1211 Geneva 23 (Switzerland) \
 E-mail: Felix.Ehm@cern.ch
 
-Laurence Field
-
-CERN
-
-Route de Meyrin 385
-
-CH-1211 Geneva 23 (Switzerland)
-
+Laurence Field \
+CERN \
+Route de Meyrin 385 \
+CH-1211 Geneva 23 (Switzerland) \
 E-mail: Laurence.Field@cern.ch
 
-Gerson Galang,
-
-Australian Research Collaboration Service (ARCS)
-
-Carlton South, Victoria (Australia)
-
+Gerson Galang \
+Australian Research Collaboration Service (ARCS) \
+Carlton South, Victoria (Australia) \
 E-mail: gerson.sapac@gmail.com
 
-Balazs Konya,
-
-Department of Physics, Lund University,
-
-Professorsgatan 1, Box 118,
-
-SE-221 00 Lund (Sweden)
-
+Balazs Konya \
+Department of Physics, Lund University \
+Professorsgatan 1, Box 118 \
+SE-221 00 Lund (Sweden) \
 E-mail: balazs.konya@hep.lu.se
 
-Maarten Litmaath
-
-CERN
-
-Route de Meyrin 385
-
-CH-1211 Geneva 23 (Switzerland)
-
+Maarten Litmaath \
+CERN \
+Route de Meyrin 385 \
+CH-1211 Geneva 23 (Switzerland) \
 E-mail: Maarten.Litmaath@cern.ch
 
-Paul Millar,
-
-Deutsches Elektronen-Synchrotron (DESY),
-
-Notkestraße 85,
-
-22607 Hamburg (Germany)
-
+Paul Millar \
+Deutsches Elektronen-Synchrotron (DESY) \
+Notkestraße 85 \
+22607 Hamburg (Germany) \
 E-mail: paul.millar@desy.de
 
 John-Paul Navarro  \
@@ -15491,16 +15458,11 @@ Mathematics & Computer Science Division, Building 221  \
 Argonne, IL 60439 (USA) \
 E-mail: navarro@mcs.anl.gov
 
-Salvatore Pinto
-
-EGI.eu
-
-Science Park 140
-
-1098 DN - Amsterdam (Netherlands)
-
+Salvatore Pinto \
+EGI.eu \
+Science Park 140 \
+1098 DN - Amsterdam (Netherlands) \
 E-mail: salvatore.pinto@egi.eu
-
 
 
 ## 13. Contributors & Acknowledgements
