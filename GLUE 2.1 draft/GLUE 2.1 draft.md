@@ -1,13 +1,4 @@
 <!----- Conversion time: 108.168 seconds.
-
-
-Using this Markdown file:
-
-1. Cut and paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
 Conversion notes:
 
 * GD2md-html version 1.0β12
@@ -22,7 +13,7 @@ Conversion notes:
 <tr><td align="left"> Category: Recommendation                 </td> <td>&nbsp;</td> <td align="right"> Salvatore Pinto°, EGI.eu </td></tr>
 <tr><td align="left"> GLUE Working Group	               </td> <td>&nbsp;</td> <td align="right"> Sergio Andreozzi°, EGI.eu </td></tr>
 <tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Stephen Burke, RAL </td></tr>
-<tr><td align="left"> http://forge.ogf.org/sf/projects/glue-wg </td> <td>&nbsp;</td> <td align="right"> Felix Ehm, CERN </td></tr>
+<tr><td align="left"> https://redmine.ogf.org/projects/glue-wg </td> <td>&nbsp;</td> <td align="right"> Felix Ehm, CERN </td></tr>
 <tr><td aalign="left"> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> Laurence Field*, CERN </td></tr>
 <tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> Gerson Galang, ARCS </td></tr>
 <tr><td align: left";> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> Balazs Konya*, Lund University </td></tr>
@@ -33,7 +24,7 @@ Conversion notes:
 <tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> *co-chairs </td></tr>
 <tr><td aalign="left"> &nbsp;                                  </td> <td>&nbsp;</td> <td align="right"> °editor </td></tr>
 <tr></tr>
-<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> October 8, 2013 </td></tr>
+<tr><td align="left"> &nbsp;                                   </td> <td>&nbsp;</td> <td align="right"> (date tbd), 2018 </td></tr>
 </table>
 
 # GLUE Specification v 2.1-DRAFT
